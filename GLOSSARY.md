@@ -23,3 +23,31 @@ _Avoid_: hard-sync connection
 **Coupling link**:
 A link where the source output feeds the target's capacitor through a virtual resistance.
 _Avoid_: resistive connection, modulation
+
+## Inverter controls
+
+**Control**:
+A musical setting that is mapped onto an inverter's physical values (feedback resistance, capacitance, thresholds). Patches and the instrument's knobs speak in controls; the circuit model speaks in physical values.
+_Avoid_: parameter (when meaning a musical setting), macro
+
+**Rate**:
+The continuous control that sets how fast an inverter oscillates, standing in for a pot on its feedback resistance.
+_Avoid_: pitch, frequency, speed
+
+**Range**:
+The stepped control that selects an inverter's capacitor, moving its whole Rate span up or down.
+_Avoid_: octave, register, multiplier
+
+**Hysteresis**:
+The gap between an inverter's lower and upper thresholds.
+_Avoid_: threshold width, deadband
+
+**Asymmetry**:
+How far an inverter's thresholds are shifted together away from mid-supply, changing its duty cycle.
+_Avoid_: bias, offset, pulse width
+
+## Output
+
+**Level**:
+How loud one inverter is in the mix. It belongs to the mixer, not the inverter: links always see an inverter's full output.
+_Avoid_: volume, gain, amplitude (when meaning the mix setting)
